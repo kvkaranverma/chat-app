@@ -14,7 +14,8 @@ const locationMessageTemplate = document.getElementById('location-message-templa
 socket.on('message', (message) => {
     console.log(message)
     const html = Mustache.render(messageTemplate, {
-        message
+        message: message.text,
+        createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
 })
@@ -22,7 +23,8 @@ socket.on('message', (message) => {
 socket.on('locationMessage', (mapsURL) => {
     console.log(mapsURL)
     const html = Mustache.render(locationMessageTemplate, {
-        mapsURL
+        mapsURL: mapsURL.text,
+        createdAt: moment(mapsURL.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
 })
