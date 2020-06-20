@@ -12,3 +12,15 @@ messageForm.addEventListener('submit', (e) => {
     socket.emit('sendMessage', message)
 })
 
+const sendLocation = document.getElementById('sendLocation')
+sendLocation.addEventListener('click', () => {
+    if(!navigator.geolocation) {
+        return alert('Geolocation is not supported by your browser')
+    }
+
+    navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+        socket.emit('sendLocation', {latitude, longitude})
+    })
+})
