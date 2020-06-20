@@ -4,9 +4,11 @@
 
     </head>
     <body>
-        Chat-app is up
-        <button id="increment">+1</button>
-
+        Chat App<br>
+        <form id="messageForm">
+            <input placeholder="message" type="text" id="message" name="message">
+            <button id="send">Send message</button>
+        </form>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="./js/chat.js"></script>
