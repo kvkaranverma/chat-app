@@ -16,7 +16,7 @@ const addUser = ({ id, username, room }) => {
 
     // Check for existing user
     const existingUser = users.find(user => {
-        return user.room === room || user.username === username
+        return user.username === username
     })
 
     // Validate username
@@ -29,6 +29,7 @@ const addUser = ({ id, username, room }) => {
     // Store user
     const user = { id, username, room }
     users.push(user)
+    console.log(users)
     return { user }
 }
 
